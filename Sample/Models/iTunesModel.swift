@@ -6,11 +6,9 @@
 //
 
 import Foundation
-struct iTunesModel: Codable,CustomStringConvertible {
-    
+struct ITunesModel: Codable, CustomStringConvertible {
     var resultCount: Int?
     var results: [Results]?
-    
 }
 
 struct Results: Codable {

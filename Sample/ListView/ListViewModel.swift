@@ -7,9 +7,9 @@
 
 import Foundation
 class ListViewModel {
-    func callItunesAPI(completionHandler: @escaping (Result<iTunesModel, NetworkError>) -> Void) {
+    func callItunesAPI(completionHandler: @escaping (Result<ITunesModel, NetworkError>) -> Void) {
         let manager = NetworkManager(session: URLSession.shared)
-        manager.loadData(for:iTunesModel.self,from: NetworkProvider.baseUrl + NetworkProvider.path) { result in
+        manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl + NetworkProvider.path) { result in
             completionHandler(result)
         }
     }

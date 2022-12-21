@@ -7,10 +7,9 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-    @IBOutlet weak var tableView:UITableView!
-    var results:[Results] = []
-    
+class ListViewController: BaseViewController {
+    @IBOutlet weak private var tableView: UITableView!
+    var results: [Results] = []
     var viewModel = ListViewModel()
 
     override func viewDidLoad() {
@@ -25,51 +24,45 @@ class ListViewController: UIViewController {
                         self.tableView.reloadData()
                     }
                 }
-                break
             case .failure(_):
                 self.alert(title: "Failure", message: "Something happened. Please try again later")
-                break
             }
         }
         // Do any additional setup after loading the view.
     }
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detail" {
-            let vc = segue.destination as! DetailViewController
-            if let value = sender as? Results {
-                vc.detailResult = value
+            if  let detailView = segue.destination as? DetailViewController {
+                if let value = sender as? Results {
+                    detailView.detailResult = value
+                }
             }
         }
     }
-    
-
 }
 
-
-extension ListViewController:UITableViewDataSource{
+extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         results.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath) as! TrackTableViewCell
-        cell.bind(data: results[indexPath.row])
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath) as? TrackTableViewCell {
+            cell.bind(data: results[indexPath.row])
+            return cell
+        } else {
+           return UITableViewCell()
+        }
     }
 }
 
-extension ListViewController:UITableViewDelegate{
+extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "detail", sender: results[indexPath.row])
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         44
     }
-    
 }

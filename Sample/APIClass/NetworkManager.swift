@@ -21,21 +21,20 @@ class NetworkManager {
         self.session = session
     }
 
-    func loadData<T:Decodable>(for: T.Type = T.self,from urlString: String,
-                  completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
+    func loadData<T: Decodable>(for: T.Type = T.self, from urlString: String, completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completionHandler(.failure(.badURL))
             return
         }
         let task = session.dataTask(with: url) { data, _, error in
-            if error != nil{
+            if error != nil {
                 completionHandler(.failure(.noDataorError))
             }
             if let data = data {
                 do {
                     let model = try JSONDecoder().decode(T.self, from: data)
                     completionHandler(.success(model))
-                }catch {
+                } catch {
                     completionHandler(.failure(.noDataorError))
                 }
             }

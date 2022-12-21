@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    @IBOutlet weak var detailLabel:UILabel!
-    var detailResult:Results?
+class DetailViewController: BaseViewController {
+    @IBOutlet weak private var detailLabel: UILabel!
+    var detailResult: Results?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,5 @@ class DetailViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

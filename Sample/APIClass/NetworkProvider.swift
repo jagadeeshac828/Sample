@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct NetworkProvider{
+struct NetworkProvider {
     static let baseUrl = "https://itunes.apple.com"
     static let path =  "/search?term=jack+johnson"
 }
