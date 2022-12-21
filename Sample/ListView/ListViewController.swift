@@ -26,8 +26,8 @@ class ListViewController: UIViewController {
                     }
                 }
                 break
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self.alert(title: "Failure", message: "Something happened. Please try again later")
                 break
             }
         }
