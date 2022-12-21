@@ -15,6 +15,7 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "iTunes Tracks"
         viewModel.callItunesAPI { result in
             switch result {
             case .success(let data):
@@ -32,6 +33,20 @@ class ListViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+            let vc = segue.destination as! DetailViewController
+            if let value = sender as? Results {
+                vc.detailResult = value
+            }
+        }
+    }
+    
 
 }
 
@@ -42,14 +57,19 @@ extension ListViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath) as! TrackTableViewCell
+        cell.bind(data: results[indexPath.row])
         return cell
     }
-    
-    
-    
 }
 
 extension ListViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detail", sender: results[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        44
+    }
     
 }

@@ -21,6 +21,9 @@ class TrackTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func bind(data:Results){
+        trackName.text = "\(data.trackName ?? "null")"
+    }
     
 
 }

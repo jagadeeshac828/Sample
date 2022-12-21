@@ -18,6 +18,8 @@
 		BF0C25702952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C256E2952E1EC00EAE162 /* TrackTableViewCell.swift */; };
 		BF0C25722952E47A00EAE162 /* iTunes.json in Resources */ = {isa = PBXBuildFile; fileRef = BF0C25712952E47A00EAE162 /* iTunes.json */; };
 		BF0C25732952E47A00EAE162 /* iTunes.json in Resources */ = {isa = PBXBuildFile; fileRef = BF0C25712952E47A00EAE162 /* iTunes.json */; };
+		BF0C25752952F00A00EAE162 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C25742952F00A00EAE162 /* DetailViewController.swift */; };
+		BF0C25762952F00A00EAE162 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C25742952F00A00EAE162 /* DetailViewController.swift */; };
 		BFB15CFB2951CA63005394D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15CFA2951CA63005394D6 /* AppDelegate.swift */; };
 		BFB15CFD2951CA63005394D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15CFC2951CA63005394D6 /* SceneDelegate.swift */; };
 		BFB15D022951CA63005394D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB15D002951CA63005394D6 /* Main.storyboard */; };
@@ -57,6 +59,7 @@
 		BF0C256A2952D0FE00EAE162 /* CustomConvertible+Desc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomConvertible+Desc.swift"; sourceTree = "<group>"; };
 		BF0C256E2952E1EC00EAE162 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		BF0C25712952E47A00EAE162 /* iTunes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iTunes.json; sourceTree = "<group>"; };
+		BF0C25742952F00A00EAE162 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFB15CF72951CA63005394D6 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB15CFA2951CA63005394D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB15CFC2951CA63005394D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		BF0C256D2952D72200EAE162 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				BF0C25742952F00A00EAE162 /* DetailViewController.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -341,6 +345,7 @@
 				BF0C256F2952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */,
 				BFB15CFB2951CA63005394D6 /* AppDelegate.swift in Sources */,
 				BF0C25662952BB4A00EAE162 /* iTunesModel.swift in Sources */,
+				BF0C25752952F00A00EAE162 /* DetailViewController.swift in Sources */,
 				BFB15D2D2951CDF6005394D6 /* ListViewController.swift in Sources */,
 				BFB15CFD2951CA63005394D6 /* SceneDelegate.swift in Sources */,
 			);
@@ -357,6 +362,7 @@
 				BF0C25702952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */,
 				BFB15D122951CA67005394D6 /* SampleTests.swift in Sources */,
 				BFB15D342951D2E9005394D6 /* APITests.swift in Sources */,
+				BF0C25762952F00A00EAE162 /* DetailViewController.swift in Sources */,
 				BF0C25632952B8B100EAE162 /* NetworkProvider.swift in Sources */,
 				BF0C25672952BB4A00EAE162 /* iTunesModel.swift in Sources */,
 			);
