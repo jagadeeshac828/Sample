@@ -49,7 +49,7 @@ final class APITests: XCTestCase {
         waitForExpectations(timeout: 10)
     }
     
-    func testFailureCase1iTunesAPI(){
+    func testFailureCase1iTunesAPI() {
         let mockSession = MockURLSession()
         let manager = NetworkManager(session: mockSession)
         let exp = expectation(description: "Loading URL")

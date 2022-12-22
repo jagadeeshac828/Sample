@@ -7,14 +7,14 @@
 
 import UIKit
 
-class ListViewController: BaseViewController {
+final class ListViewController: BaseViewController {
     @IBOutlet weak private var tableView: UITableView!
     var results: [Results] = []
     var viewModel = ListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "iTunes Tracks"
+        self.title = Constants.listViewTitle
         viewModel.callItunesAPI { result in
             switch result {
             case .success(let data):
@@ -25,7 +25,11 @@ class ListViewController: BaseViewController {
                     }
                 }
             case .failure(let error):
-                self.alert(title: "Failure", message: error.rawValue)
+                if let error = error as? NetworkError {
+                    self.alert(title: Constants.failureMessage, message: error.rawValue)
+                } else {
+                    self.alert(title: Constants.failureMessage, message: error.localizedDescription)
+                }
             }
         }
         // Do any additional setup after loading the view.
@@ -45,24 +49,27 @@ class ListViewController: BaseViewController {
 }
 
 extension ListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         results.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath) as? TrackTableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TrackTableViewCell.self), for: indexPath) as! TrackTableViewCell
             cell.bind(data: results[indexPath.row])
             return cell
-        } else {
-           return UITableViewCell()
-        }
     }
+    
 }
 
 extension ListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "detail", sender: results[indexPath.row])
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         44
     }
+    
 }

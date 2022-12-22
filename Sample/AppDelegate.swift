@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
 
         }
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+            let dictionary = NSDictionary(contentsOfFile: path)
+            print(dictionary?["SERVER_URL"])
+        }
         return true
     }
 
