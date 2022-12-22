@@ -24,8 +24,8 @@ class ListViewController: BaseViewController {
                         self.tableView.reloadData()
                     }
                 }
-            case .failure(_):
-                self.alert(title: "Failure", message: "Something happened. Please try again later")
+            case .failure(let error):
+                self.alert(title: "Failure", message: error.rawValue)
             }
         }
         // Do any additional setup after loading the view.

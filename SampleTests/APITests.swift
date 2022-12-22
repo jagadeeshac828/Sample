@@ -25,7 +25,7 @@ final class APITests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
-    func testiTunesAPI() {
+    func testSuccessCaseiTunesAPI() {
         let mockSession = MockURLSession()
         let manager = NetworkManager(session: mockSession)
         if let path = Bundle(for: type(of: self)).path(forResource: "iTunes", ofType: "json") {
@@ -44,6 +44,21 @@ final class APITests: XCTestCase {
                 exp.fulfill()
             case .failure(_):
                 break
+            }
+        }
+        waitForExpectations(timeout: 10)
+    }
+    
+    func testFailureCase1iTunesAPI(){
+        let mockSession = MockURLSession()
+        let manager = NetworkManager(session: mockSession)
+        let exp = expectation(description: "Loading URL")
+        manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl) { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                exp.fulfill()
             }
         }
         waitForExpectations(timeout: 10)

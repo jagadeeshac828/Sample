@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum NetworkError: Error {
+enum NetworkError: String, Error {
     case noDataorError
     case badURL
+    case dataEmpty
 }
 
 class NetworkManager {
@@ -37,6 +38,8 @@ class NetworkManager {
                 } catch {
                     completionHandler(.failure(.noDataorError))
                 }
+            }else {
+                completionHandler(.failure(.dataEmpty))
             }
         }
 
