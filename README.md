@@ -1,8 +1,13 @@
 - Supported to minimum iOS version 13.0
+- Supported to minimum xcode version 13.0
+- SDWebImage pod used for lazy loading Images
 - Implemented different environments (Debug, release, QA)
+- Debug environment - for development purpose
+- Release environment - for release purpose
+- QA environment - for testing
 - Test cases covered upto 72%
 - Using swiftLint corrected swift style and spaces
 - Implemented Jail brocken
 - This project has TableView and detail View.
-- Used Access specifier.
+- Used access specifier.
 - Loosely coupled API calling implemented.
