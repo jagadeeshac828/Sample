@@ -1,1 +1,7 @@
-# Sample
+- Supported to minimum iOS version 13.0
+- Implemented different environments (Debug, release, QA)
+- Test cases covered upto 72%
+- Using swiftLint corrected swift style and spaces
+- Implemented Jail brocken
+- This project has TableView and detail View.
+- Access specifier used in project
