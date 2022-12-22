@@ -10,7 +10,10 @@ class MockURLSession: NetworkSession {
     var data: Data?
     var error: Error?
     
-    func loadData(from url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
-        completionHandler(data, error)
+    func loadData(from url: URL) async throws -> Data? {
+        if let error = error {
+            throw error
+        }
+        return data
     }
 }

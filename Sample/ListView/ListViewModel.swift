@@ -11,7 +11,7 @@ protocol ListViewModelProtocol {
     var errorMessage: String? { get }
     var resultsDidChange: (() -> Void)? { get set }
     var errorDidChange: (() -> Void)? { get set }
-    func listItunesTrack()
+    func listItunesTrack() 
 }
 class ListViewModel: ListViewModelProtocol {
     
@@ -31,24 +31,15 @@ class ListViewModel: ListViewModelProtocol {
     var errorDidChange: (() -> Void)?
     
     func listItunesTrack() {
-        let manager = NetworkManager(session: URLSession.shared)
-        manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl + NetworkProvider.path) { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    if let results = data.results {
-                        self?.results = results
-                    }
+        Task {
+            let manager = NetworkManager(session: URLSession.shared)
+            do {
+                let result =  try await manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl + NetworkProvider.path)
+                self.results = result?.results
+            } catch {
+                if let error = error as? NetworkError {
+                    self.errorMessage =  error.rawValue
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    if let error = error as? NetworkError {
-                        self?.errorMessage =  error.rawValue
-                    } else {
-                        self?.errorMessage = error.localizedDescription
-                    }
-                }
-                
             }
         }
     }

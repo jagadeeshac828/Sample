@@ -6,18 +6,25 @@
 //
 
 import Foundation
+enum APIError: String, Error {
+    case nonSuccessStatusCode = "nonSuccessStatusCode"
+    case parsingError = "parsingError"
+    case badURL = "badURL"
+}
+
 protocol NetworkSession {
-    func loadData(from url: URL,
-                  completionHandler: @escaping (Data?, Error?) -> Void)
+    func loadData(from url: URL) async throws -> Data?
 }
 
 extension URLSession: NetworkSession {
-    func loadData(from url: URL,
-                  completionHandler: @escaping (Data?, Error?) -> Void) {
-        let task = dataTask(with: url) { (data, _, error) in
-            completionHandler(data, error)
+    func loadData(from url: URL) async throws -> Data? {
+        do {
+            let (data, response) = try await data(from: url)
+            guard let httpStausCode = (response as? HTTPURLResponse)?.statusCode,
+                  (200...299).contains(httpStausCode) else {
+                throw APIError.nonSuccessStatusCode
+            }
+            return data
         }
-
-        task.resume()
     }
 }

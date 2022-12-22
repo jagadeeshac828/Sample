@@ -36,7 +36,7 @@ final class ListViewController: BaseViewController {
         }
         
         showSpinner(UIActivityIndicatorView.Style.medium)
-        viewModel?.listItunesTrack()
+         viewModel?.listItunesTrack()
     }
     
 }

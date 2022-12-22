@@ -45,6 +45,7 @@
 		BFF80CF829547B3A0079C956 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF729547B390079C956 /* DetailViewModel.swift */; };
 		BFF80CFA295486460079C956 /* URLSession+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF9295486460079C956 /* URLSession+API.swift */; };
 		BFF80CFB295487720079C956 /* URLSession+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF9295486460079C956 /* URLSession+API.swift */; };
+		BFF80CFC2954B6BF0079C956 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF729547B390079C956 /* DetailViewModel.swift */; };
 		F6882A6B2AB332672D0E1266 /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD9744DAE0CE1EDCEE2C3B /* Pods_Sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -494,6 +495,7 @@
 				BF0C25762952F00A00EAE162 /* DetailViewController.swift in Sources */,
 				BF0C25632952B8B100EAE162 /* NetworkProvider.swift in Sources */,
 				BF0C25672952BB4A00EAE162 /* iTunesModel.swift in Sources */,
+				BFF80CFC2954B6BF0079C956 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

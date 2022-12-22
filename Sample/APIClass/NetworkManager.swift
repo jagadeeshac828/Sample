@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    case noDataorError
-    case badURL
-    case dataEmpty
-}
-
 class NetworkManager {
     private let session: NetworkSession
     
@@ -20,27 +14,27 @@ class NetworkManager {
     // injection without making our app code more complicated.
     init(session: NetworkSession = URLSession.shared) {
         self.session = session
+        
     }
     
-    func loadData<T: Decodable>(for: T.Type = T.self, from urlString: String, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    func loadData<T: Decodable>(for: T.Type = T.self, from urlString: String) async throws -> T? {
         guard let url = URL(string: urlString) else {
-            completionHandler(.failure(NetworkError.badURL))
-            return
+            throw APIError.badURL
         }
-        session.loadData(from: url) { data, error in
-            if let error = error {
-                completionHandler(.failure(error))
-            }
-            if let data = data {
+        do {
+            if let data = try await session.loadData(from: url) {
                 do {
                     let model = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(.success(model))
+                    return model
                 } catch {
-                    completionHandler(.failure(NetworkError.noDataorError))
+                    throw APIError.parsingError
                 }
             } else {
-                completionHandler(.failure(NetworkError.dataEmpty))
+               return nil
             }
+        } catch {
+            throw error
         }
+        
     }
 }
