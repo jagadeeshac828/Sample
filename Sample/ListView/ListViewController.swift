@@ -15,21 +15,27 @@ final class ListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants.listViewTitle
+        self.showSpinner(UIActivityIndicatorView.Style.medium)
         viewModel.callItunesAPI { result in
             switch result {
             case .success(let data):
                 if let results = data.results {
                     self.results = results
                     DispatchQueue.main.async {
+                        self.removeSpinner()
                         self.tableView.reloadData()
                     }
                 }
             case .failure(let error):
-                if let error = error as? NetworkError {
-                    self.alert(title: Constants.failureMessage, message: error.rawValue)
-                } else {
-                    self.alert(title: Constants.failureMessage, message: error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.removeSpinner()
+                    if let error = error as? NetworkError {
+                        self.alert(title: Constants.failureMessage, message: error.rawValue)
+                    } else {
+                        self.alert(title: Constants.failureMessage, message: error.localizedDescription)
+                    }
                 }
+               
             }
         }
         // Do any additional setup after loading the view.

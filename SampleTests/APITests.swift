@@ -37,9 +37,10 @@ final class APITests: XCTestCase {
             }
         }
         let exp = expectation(description: "Loading URL")
-        manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl) { result in
+        manager.loadData(for: ITunesModel.self, from: "https://itunes.apple.com") { result in
             switch result {
             case .success(let data):
+                print(data)
                 XCTAssert(data.resultCount == 50)
                 exp.fulfill()
             case .failure(_):
@@ -54,6 +55,21 @@ final class APITests: XCTestCase {
         let manager = NetworkManager(session: mockSession)
         let exp = expectation(description: "Loading URL")
         manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl) { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                exp.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 10)
+    }
+    
+    func testFailureCase2iTunesAPI() {
+        let mockSession = MockURLSession()
+        let manager = NetworkManager(session: mockSession)
+        let exp = expectation(description: "Loading URL")
+        manager.loadData(for: ITunesModel.self, from: "BadUrl") { result in
             switch result {
             case .success(_):
                 break

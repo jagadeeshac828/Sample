@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
             let dictionary = NSDictionary(contentsOfFile: path)
-            print(dictionary?["SERVER_URL"])
+            GlobalVariables.propertyListValues = dictionary
         }
         return true
     }

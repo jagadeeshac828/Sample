@@ -37,6 +37,10 @@
 		BFB15D372951D3E2005394D6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15D362951D3E2005394D6 /* NetworkManager.swift */; };
 		BFB15D382951D419005394D6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15D362951D3E2005394D6 /* NetworkManager.swift */; };
 		BFF80CDE295403750079C956 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CDD295403740079C956 /* Constants.swift */; };
+		BFF80CDF29542CFC0079C956 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CDD295403740079C956 /* Constants.swift */; };
+		BFF80CE12954333E0079C956 /* DetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CE02954333E0079C956 /* DetailViewTests.swift */; };
+		BFF80CE22954362F0079C956 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15D2C2951CDF6005394D6 /* ListViewController.swift */; };
+		BFF80CE329543B970079C956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB15D002951CA63005394D6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,7 @@
 		BFB15D332951D2E9005394D6 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		BFB15D362951D3E2005394D6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFF80CDD295403740079C956 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFF80CE02954333E0079C956 /* DetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,7 @@
 			children = (
 				BFB15D112951CA67005394D6 /* SampleTests.swift */,
 				BFB15D332951D2E9005394D6 /* APITests.swift */,
+				BFF80CE02954333E0079C956 /* DetailViewTests.swift */,
 				BF0C257F29531EEA00EAE162 /* API */,
 			);
 			path = SampleTests;
@@ -304,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF0C25732952E47A00EAE162 /* iTunes.json in Resources */,
+				BFF80CE329543B970079C956 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +364,13 @@
 				BFB15D382951D419005394D6 /* NetworkManager.swift in Sources */,
 				BF0C256C2952D0FE00EAE162 /* CustomConvertible+Desc.swift in Sources */,
 				BFB15D322951D2C0005394D6 /* MockURLSession.swift in Sources */,
+				BFF80CE12954333E0079C956 /* DetailViewTests.swift in Sources */,
 				BF0C25682952C55A00EAE162 /* ListViewModel.swift in Sources */,
 				BF0C25792952F66A00EAE162 /* Alert+UIViewController.swift in Sources */,
 				BF0C257D2953121A00EAE162 /* BaseViewController.swift in Sources */,
 				BF0C25702952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */,
+				BFF80CE22954362F0079C956 /* ListViewController.swift in Sources */,
+				BFF80CDF29542CFC0079C956 /* Constants.swift in Sources */,
 				BFB15D122951CA67005394D6 /* SampleTests.swift in Sources */,
 				BFB15D342951D2E9005394D6 /* APITests.swift in Sources */,
 				BF0C25762952F00A00EAE162 /* DetailViewController.swift in Sources */,
