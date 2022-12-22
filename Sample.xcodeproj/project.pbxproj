@@ -42,6 +42,7 @@
 		BFF80CE12954333E0079C956 /* DetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CE02954333E0079C956 /* DetailViewTests.swift */; };
 		BFF80CE22954362F0079C956 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15D2C2951CDF6005394D6 /* ListViewController.swift */; };
 		BFF80CE329543B970079C956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB15D002951CA63005394D6 /* Main.storyboard */; };
+		BFF80CF629546A960079C956 /* SDWebImage+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF529546A960079C956 /* SDWebImage+UIImageView.swift */; };
 		F6882A6B2AB332672D0E1266 /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD9744DAE0CE1EDCEE2C3B /* Pods_Sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		BFB15D362951D3E2005394D6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFF80CDD295403740079C956 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFF80CE02954333E0079C956 /* DetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTests.swift; sourceTree = "<group>"; };
+		BFF80CF529546A960079C956 /* SDWebImage+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDWebImage+UIImageView.swift"; sourceTree = "<group>"; };
 		DF078C7CDECEDD865106E06C /* Pods-Sample.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.qa.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.qa.xcconfig"; sourceTree = "<group>"; };
 		E108AFC5AEBC5585AF85FB2D /* Pods-SampleTests.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleTests.qa.xcconfig"; path = "Target Support Files/Pods-SampleTests/Pods-SampleTests.qa.xcconfig"; sourceTree = "<group>"; };
 		FE33E3B9F5710A205D578FDC /* Pods-SampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleTests.debug.xcconfig"; path = "Target Support Files/Pods-SampleTests/Pods-SampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 				567BBE967C9D0431344EB366 /* Pods-SampleTests.release.xcconfig */,
 				E108AFC5AEBC5585AF85FB2D /* Pods-SampleTests.qa.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +208,7 @@
 				BF0C25642952BB3600EAE162 /* Models */,
 				BF0C25692952D0E700EAE162 /* Extension */,
 				BFF80CDC2954027B0079C956 /* Classes */,
+				BFF80CF429546A3F0079C956 /* WrapperClass */,
 				BFB15D002951CA63005394D6 /* Main.storyboard */,
 				BFB15D032951CA66005394D6 /* Assets.xcassets */,
 				BFB15D052951CA66005394D6 /* LaunchScreen.storyboard */,
@@ -251,6 +253,14 @@
 				BFF80CDD295403740079C956 /* Constants.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		BFF80CF429546A3F0079C956 /* WrapperClass */ = {
+			isa = PBXGroup;
+			children = (
+				BFF80CF529546A960079C956 /* SDWebImage+UIImageView.swift */,
+			);
+			path = WrapperClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +459,7 @@
 				BF0C25782952F66A00EAE162 /* Alert+UIViewController.swift in Sources */,
 				BF0C257C2953121A00EAE162 /* BaseViewController.swift in Sources */,
 				BF0C256F2952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */,
+				BFF80CF629546A960079C956 /* SDWebImage+UIImageView.swift in Sources */,
 				BFF80CDE295403750079C956 /* Constants.swift in Sources */,
 				BFB15CFB2951CA63005394D6 /* AppDelegate.swift in Sources */,
 				BF0C25662952BB4A00EAE162 /* iTunesModel.swift in Sources */,
