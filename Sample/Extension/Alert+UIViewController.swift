@@ -46,3 +46,16 @@ extension UIViewController {
      }
     
 }
+
+enum StoryboardName: String {
+    case main = "Main"
+    
+}
+
+extension UIViewController {
+    static func instantiate<T: UIViewController>(_ appStoryboard: StoryboardName) -> T {
+        let storyboard = UIStoryboard(name: appStoryboard.rawValue, bundle: nil)
+        let identifier = String(describing: self)
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
+    }
+}

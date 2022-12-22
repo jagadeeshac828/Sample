@@ -10,6 +10,7 @@ import UIKit
 final class DetailViewController: BaseViewController {
     @IBOutlet weak private var detailLabel: UILabel!
     var detailResult: Results?
+    var viewModel: DetailViewModelProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()

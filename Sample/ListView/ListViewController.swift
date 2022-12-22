@@ -10,48 +10,35 @@ import UIKit
 final class ListViewController: BaseViewController {
     @IBOutlet weak private var tableView: UITableView!
     var results: [Results] = []
-    var viewModel = ListViewModel()
+    var viewModel: ListViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants.listViewTitle
-        self.showSpinner(UIActivityIndicatorView.Style.medium)
-        viewModel.callItunesAPI { [weak self] result in
-            switch result {
-            case .success(let data):
-                if let results = data.results {
+        
+        viewModel?.resultsDidChange = { [weak self] in
+            DispatchQueue.main.async {
+                if let results = self?.viewModel?.results {
                     self?.results = results
-                    DispatchQueue.main.async {
-                        self?.removeSpinner()
-                        self?.tableView.reloadData()
-                    }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.removeSpinner()
-                    if let error = error as? NetworkError {
-                        self?.alert(title: Constants.failureMessage, message: error.rawValue)
-                    } else {
-                        self?.alert(title: Constants.failureMessage, message: error.localizedDescription)
-                    }
-                }
-                
+                self?.removeSpinner()
+                self?.tableView.reloadData()
             }
         }
-        // Do any additional setup after loading the view.
+        
+        viewModel?.errorDidChange = { [weak self] in
+            DispatchQueue.main.async {
+                self?.removeSpinner()
+                if let error = self?.viewModel?.errorMessage {
+                    self?.alert(title: Constants.failureMessage, message: error)
+                }
+            }
+        }
+        
+        showSpinner(UIActivityIndicatorView.Style.medium)
+        viewModel?.listItunesTrack()
     }
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detail" {
-            if  let detailView = segue.destination as? DetailViewController {
-                if let value = sender as? Results {
-                    detailView.detailResult = value
-                }
-            }
-        }
-    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -71,7 +58,9 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detail", sender: results[indexPath.row])
+        let viewController: DetailViewController = DetailViewController.instantiate(.main)
+        viewController.viewModel = DetailViewModel()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -33,11 +33,11 @@ final class DetailViewTests: XCTestCase {
     }
     
     func testAlertIsPresented() {
-        let viewController = UIApplication.shared.keyWindow?.rootViewController
+        let viewController = UIApplication.shared.windows.first?.rootViewController
         let expectation = expectation(description: "shows alert")
         viewController?.alert(title: "Success", message: "Solution")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            XCTAssertTrue(UIApplication.shared.keyWindow?.rootViewController?.presentedViewController is UIAlertController)
+            XCTAssertTrue(UIApplication.shared.windows.first?.rootViewController?.presentedViewController is UIAlertController)
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 1.5)
