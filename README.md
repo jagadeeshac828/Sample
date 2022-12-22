@@ -4,4 +4,5 @@
 - Using swiftLint corrected swift style and spaces
 - Implemented Jail brocken
 - This project has TableView and detail View.
-- Access specifier used in project
+- Used Access specifier.
+- Loosely coupled API calling implemented.
