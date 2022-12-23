@@ -12,4 +12,4 @@
 - Used access specifier.
 - Loosely coupled API calling implemented.
 - Used async/await for API calling.
-- User cocoapod version 1.10.0
+- Used cocoapod version 1.10.1
