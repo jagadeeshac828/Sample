@@ -8,21 +8,20 @@
 import XCTest
 
 final class DetailViewTests: XCTestCase {
-
+    var viewController: UIViewController?
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = UIApplication.shared.windows.first?.rootViewController
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewController = nil
     }
 
     func testAlertIsPresented() {
-        let viewController = UIApplication.shared.windows.first?.rootViewController
         let expectation = expectation(description: "shows alert")
         viewController?.alert(title: "Success", message: "Solution")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            XCTAssertTrue(UIApplication.shared.windows.first?.rootViewController?.presentedViewController is UIAlertController)
+            XCTAssertTrue(self.viewController?.presentedViewController is UIAlertController)
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 1.5)

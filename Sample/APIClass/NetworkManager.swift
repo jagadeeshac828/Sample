@@ -10,11 +10,8 @@ import Foundation
 class NetworkManager {
     private let session: NetworkSession
     
-    // By using a default argument (in this case .shared) we can add dependency
-    // injection without making our app code more complicated.
     init(session: NetworkSession = URLSession.shared) {
         self.session = session
-        
     }
     
     func loadData<T: Decodable>(for: T.Type = T.self, from urlString: String) async throws -> T? {

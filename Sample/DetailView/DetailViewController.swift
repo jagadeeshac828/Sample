@@ -17,7 +17,6 @@ final class DetailViewController: BaseViewController {
         super.viewDidLoad()
         self.title = detailResult?.trackName ?? ""
         assignValuesToUI()
-        // Do any additional setup after loading the view.
     }
     
     private func assignValuesToUI() {
