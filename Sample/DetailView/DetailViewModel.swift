@@ -7,8 +7,17 @@
 
 import Foundation
 protocol DetailViewModelProtocol {
-    
+    func constructDataForLabel(_ result: Results) -> String
 }
 class DetailViewModel: DetailViewModelProtocol {
     
+    func constructDataForLabel(_ result: Results) -> String {
+        let data =
+                    """
+                    \(Constants.trackName) - \(result.trackName ?? "")
+                    \(Constants.artistName) - \(result.artistName ?? "")
+                    """
+        return data
+        
+    }
 }

@@ -21,16 +21,11 @@ final class DetailViewController: BaseViewController {
     
     private func assignValuesToUI() {
         if let result = detailResult {
-            detailLabel.text =
-            """
-            \(Constants.trackName) - \(result.trackName ?? "")
-            \(Constants.artistName) - \(result.artistName ?? "")
-            """
+            detailLabel.text = viewModel?.constructDataForLabel(result)
             if let url = URL(string: result.artworkUrl100 ?? "") {
                 trackImageView.loadImageURL(url)
             }
         }
-        
     }
 
 }
