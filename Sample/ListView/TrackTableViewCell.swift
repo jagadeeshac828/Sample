@@ -9,7 +9,7 @@ import UIKit
 
 class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak private var trackName: UILabel!
-    @IBOutlet weak private var trackImageView:UIImageView!
+    @IBOutlet weak private var trackImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
