@@ -27,4 +27,26 @@ final class DetailViewTests: XCTestCase {
         wait(for: [expectation], timeout: 1.5)
     }
     
+    func testCheckConstructData() {
+        var viewModel = DetailViewModel()
+        if let path = Bundle(for: type(of: self)).path(forResource: "iTunes", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let model = try JSONDecoder().decode(ITunesModel.self, from: data)
+                if let result = model.results?[0] {
+                   let value = viewModel.constructDataForLabel(result)
+                   let output =
+                    """
+                    Track Name - Upside Down
+                    Artist Name - Jack Johnson
+                    """
+                   XCTAssertEqual(value, output)
+                }
+                
+            } catch {
+                // handle error
+            }
+        }
+    }
+    
 }
