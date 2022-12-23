@@ -30,6 +30,7 @@ class ListViewModel: ListViewModelProtocol {
     var resultsDidChange: (() -> Void)?
     var errorDidChange: (() -> Void)?
     
+    // This method for call iTunes API
     func listItunesTrack() {
         Task {
             let manager = NetworkManager(session: URLSession.shared)

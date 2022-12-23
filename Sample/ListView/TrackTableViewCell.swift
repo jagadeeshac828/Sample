@@ -21,6 +21,7 @@ class TrackTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // This method for add data to Cell
     func bind(data: Results) {
         trackName.text = "\(data.trackName ?? "null")"
         if let url = URL(string: data.artworkUrl100 ?? "") {

@@ -17,6 +17,7 @@ protocol NetworkSession {
     func loadData(from url: URL) async throws -> Data?
 }
 
+// This extension used to used to mock url session from protocol
 extension URLSession: NetworkSession {
     func loadData(from url: URL) async throws -> Data? {
         do {
@@ -30,6 +31,7 @@ extension URLSession: NetworkSession {
     }
 }
 
+// This extesion used to support data(from: delegate:) below ios 15.0
 @available(iOS, deprecated: 15.0, message: "Use the built-in API instead")
 extension URLSession {
     func data(from url: URL) async throws -> (Data, URLResponse) {

@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-var vSpinner: UIView?
-
+// This extension used to show alert
 extension UIViewController {
     
     func alert(title: String?, message: String?) {
@@ -18,6 +17,14 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+}
+
+// This extension used to show activity Indicator
+
+var vSpinner: UIView?
+
+extension UIViewController {
     
     func showSpinner(_ activityStyle: UIActivityIndicatorView.Style, color: UIColor? = nil) {
         if vSpinner == nil {
@@ -37,16 +44,17 @@ extension UIViewController {
     }
     
     func removeSpinner() {
-         if vSpinner != nil {
-             DispatchQueue.main.async {
-                 vSpinner?.removeFromSuperview()
-                 vSpinner = nil
-             }
-         }
-     }
+        if vSpinner != nil {
+            DispatchQueue.main.async {
+                vSpinner?.removeFromSuperview()
+                vSpinner = nil
+            }
+        }
+    }
     
 }
 
+// This extension used to instantiate viewcontroller from storyboard identifier
 enum StoryboardName: String {
     case main = "Main"
 }

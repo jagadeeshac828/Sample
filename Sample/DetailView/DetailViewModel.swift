@@ -11,6 +11,7 @@ protocol DetailViewModelProtocol {
 }
 class DetailViewModel: DetailViewModelProtocol {
     
+    // This method for construct data from response
     func constructDataForLabel(_ result: Results) -> String {
         let data =
                     """

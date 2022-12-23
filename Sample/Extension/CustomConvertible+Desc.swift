@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// This extension used for convert model to readable format when print
 public extension CustomStringConvertible {
     var description: String {
         var description = " \(type(of: self)): { "

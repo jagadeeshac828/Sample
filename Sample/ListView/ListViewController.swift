@@ -39,6 +39,7 @@ final class ListViewController: BaseViewController {
         viewModel?.listItunesTrack()
     }
     
+    // This method for navigate to detailView
     private func navigateToDetailView(_ data: Results) {
         let viewController: DetailViewController = DetailViewController.instantiate(.main)
         viewController.viewModel = DetailViewModel()
@@ -48,6 +49,7 @@ final class ListViewController: BaseViewController {
     
 }
 
+  // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +64,7 @@ extension ListViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
