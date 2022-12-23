@@ -39,6 +39,13 @@ final class ListViewController: BaseViewController {
         viewModel?.listItunesTrack()
     }
     
+    private func navigateToDetailView(_ data: Results) {
+        let viewController: DetailViewController = DetailViewController.instantiate(.main)
+        viewController.viewModel = DetailViewModel()
+        viewController.detailResult = data
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 extension ListViewController: UITableViewDataSource {
