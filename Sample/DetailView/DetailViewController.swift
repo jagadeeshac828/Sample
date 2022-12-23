@@ -9,6 +9,7 @@ import UIKit
 
 final class DetailViewController: BaseViewController {
     @IBOutlet weak private var detailLabel: UILabel!
+    @IBOutlet weak private var trackImageView: UIImageView!
     var detailResult: Results?
     var viewModel: DetailViewModelProtocol?
 
@@ -26,7 +27,11 @@ final class DetailViewController: BaseViewController {
             \(Constants.trackName) - \(result.trackName ?? "")
             \(Constants.artistName) - \(result.artistName ?? "")
             """
+            if let url = URL(string: result.artworkUrl100 ?? "") {
+                trackImageView.loadImageURL(url)
+            }
         }
+        
     }
 
 }
