@@ -33,8 +33,14 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbV-wr-AO2">
                                                             <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-qT-0T6">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0YL-gb-gQz">
+                                                                    <rect key="frame" x="10" y="10" width="40" height="38"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="40" id="YWf-nC-I9c"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-qT-0T6">
+                                                                    <rect key="frame" x="60" y="0.0" width="323" height="58"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -42,10 +48,13 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="ZTD-qT-0T6" firstAttribute="leading" secondItem="UbV-wr-AO2" secondAttribute="leading" id="7PM-El-28g"/>
+                                                                <constraint firstItem="0YL-gb-gQz" firstAttribute="leading" secondItem="UbV-wr-AO2" secondAttribute="leading" constant="10" id="8ye-z7-CZA"/>
+                                                                <constraint firstAttribute="bottom" secondItem="0YL-gb-gQz" secondAttribute="bottom" constant="10" id="RuD-HT-sSB"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ZTD-qT-0T6" secondAttribute="bottom" id="WXJ-Zr-2c7"/>
                                                                 <constraint firstItem="ZTD-qT-0T6" firstAttribute="top" secondItem="UbV-wr-AO2" secondAttribute="top" id="jfJ-8l-1pf"/>
-                                                                <constraint firstAttribute="trailing" secondItem="ZTD-qT-0T6" secondAttribute="trailing" id="u7S-2R-Huj"/>
+                                                                <constraint firstItem="0YL-gb-gQz" firstAttribute="top" secondItem="UbV-wr-AO2" secondAttribute="top" constant="10" id="m3I-VW-KvX"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ZTD-qT-0T6" secondAttribute="trailing" constant="10" id="u7S-2R-Huj"/>
+                                                                <constraint firstItem="ZTD-qT-0T6" firstAttribute="leading" secondItem="0YL-gb-gQz" secondAttribute="trailing" constant="10" id="xZn-wi-3kh"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -57,6 +66,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="trackImageView" destination="0YL-gb-gQz" id="Tv7-8g-AXF"/>
                                                     <outlet property="trackName" destination="ZTD-qT-0T6" id="MrT-Bm-q6Z"/>
                                                 </connections>
                                             </tableViewCell>

@@ -58,10 +58,7 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController: DetailViewController = DetailViewController.instantiate(.main)
-        viewController.viewModel = DetailViewModel()
-        viewController.detailResult = results[indexPath.row]
-        self.navigationController?.pushViewController(viewController, animated: true)
+        navigateToDetailView(results[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

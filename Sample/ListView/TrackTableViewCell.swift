@@ -9,6 +9,7 @@ import UIKit
 
 class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak private var trackName: UILabel!
+    @IBOutlet weak private var trackImageView:UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,9 @@ class TrackTableViewCell: UITableViewCell {
     
     func bind(data: Results) {
         trackName.text = "\(data.trackName ?? "null")"
+        if let url = URL(string: data.artworkUrl100 ?? "") {
+            trackImageView.loadImageURL(url)
+        }
     }
     
 }
