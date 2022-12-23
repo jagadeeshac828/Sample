@@ -25,6 +25,7 @@
 		BF0C25792952F66A00EAE162 /* Alert+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C25772952F66A00EAE162 /* Alert+UIViewController.swift */; };
 		BF0C257C2953121A00EAE162 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C257B2953121A00EAE162 /* BaseViewController.swift */; };
 		BF0C257D2953121A00EAE162 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C257B2953121A00EAE162 /* BaseViewController.swift */; };
+		BF72206E29556287005AD87F /* SDWebImage+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80CF529546A960079C956 /* SDWebImage+UIImageView.swift */; };
 		BFB15CFB2951CA63005394D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15CFA2951CA63005394D6 /* AppDelegate.swift */; };
 		BFB15CFD2951CA63005394D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB15CFC2951CA63005394D6 /* SceneDelegate.swift */; };
 		BFB15D022951CA63005394D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB15D002951CA63005394D6 /* Main.storyboard */; };
@@ -491,6 +492,7 @@
 				BF0C25702952E1EC00EAE162 /* TrackTableViewCell.swift in Sources */,
 				BFF80CE22954362F0079C956 /* ListViewController.swift in Sources */,
 				BFF80CDF29542CFC0079C956 /* Constants.swift in Sources */,
+				BF72206E29556287005AD87F /* SDWebImage+UIImageView.swift in Sources */,
 				BFB15D342951D2E9005394D6 /* APITests.swift in Sources */,
 				BF0C25762952F00A00EAE162 /* DetailViewController.swift in Sources */,
 				BF0C25632952B8B100EAE162 /* NetworkProvider.swift in Sources */,
