@@ -21,19 +21,12 @@ class NetworkManager {
         guard let url = URL(string: urlString) else {
             throw APIError.badURL
         }
-        do {
-            if let data = try await session.loadData(from: url) {
-                do {
-                    let model = try JSONDecoder().decode(T.self, from: data)
-                    return model
-                } catch {
-                    throw APIError.parsingError
-                }
-            } else {
-               return nil
-            }
-        } catch {
-            throw error
+        
+        if let data = try await session.loadData(from: url) {
+            let model = try JSONDecoder().decode(T.self, from: data)
+            return model
+        } else {
+            throw APIError.dataEmpty
         }
         
     }

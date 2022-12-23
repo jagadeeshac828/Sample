@@ -10,6 +10,7 @@ enum APIError: String, Error {
     case nonSuccessStatusCode = "nonSuccessStatusCode"
     case parsingError = "parsingError"
     case badURL = "badURL"
+    case dataEmpty = "DataEmpty"
 }
 
 protocol NetworkSession {

@@ -36,7 +36,7 @@ final class ListViewController: BaseViewController {
         }
         
         showSpinner(UIActivityIndicatorView.Style.medium)
-         viewModel?.listItunesTrack()
+        viewModel?.listItunesTrack()
     }
     
 }
@@ -60,6 +60,7 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController: DetailViewController = DetailViewController.instantiate(.main)
         viewController.viewModel = DetailViewModel()
+        viewController.detailResult = results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

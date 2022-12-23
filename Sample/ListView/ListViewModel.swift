@@ -23,7 +23,7 @@ class ListViewModel: ListViewModelProtocol {
     
     var errorMessage: String? {
         didSet {
-            self.resultsDidChange?()
+            self.errorDidChange?()
         }
     }
     
@@ -37,8 +37,10 @@ class ListViewModel: ListViewModelProtocol {
                 let result =  try await manager.loadData(for: ITunesModel.self, from: NetworkProvider.baseUrl + NetworkProvider.path)
                 self.results = result?.results
             } catch {
-                if let error = error as? NetworkError {
+                if let error = error as? APIError {
                     self.errorMessage =  error.rawValue
+                } else {
+                    self.errorMessage = error.localizedDescription
                 }
             }
         }
